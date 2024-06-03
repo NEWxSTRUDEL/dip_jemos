@@ -1,0 +1,12 @@
+.mainvin{
+    padding: 5% 3%;
+}
+
+.scale {
+    transition: .2s; /* Время эффекта */
+    
+   }
+   .scale:hover {
+    transform: scale(1.1); /* Увеличиваем масштаб */
+   }
+  

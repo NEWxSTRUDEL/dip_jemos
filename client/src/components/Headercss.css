@@ -1,0 +1,61 @@
+ /* Header.css */
+ .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 10px 20px;
+  color: white;
+}
+
+.header-logo {
+  font-size: 24px;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+}
+
+.header-nav button {
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  margin-left: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.but1{
+  background-color: #444;
+  transition: 0.4s ease;
+}
+.but2{
+  background-color: #444;
+  transition: 0.4s ease;
+}
+.but3{
+  background-color: #444;
+  transition: 0.4s ease;
+}
+
+.but1:hover {
+  background-color: #5a5a5a;
+}
+
+.but2:hover {
+  background-color: #5a5a5a;
+}
+
+.but3:hover {
+  background-color: #ae0707;
+}
+
+
+.scale {
+  transition: .2s; /* Время эффекта */
+  
+ }
+ .scale:hover {
+  transform: scale(1.1); /* Увеличиваем масштаб */
+ }
+
+

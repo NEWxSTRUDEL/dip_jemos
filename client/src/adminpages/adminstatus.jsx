@@ -119,7 +119,7 @@ function Adminstatus() {
                 <div className="text">{buy.map((b)=>(
                     <div className="alluse" key={b.ID}>
 
-                        <a aria-current="page"  href="/#" >ID:{b.ID} Ник:{getUserName(b.id_user)} Курс:{getCourseTitle(b.id_course)} Дата:{b.date}
+                        <a aria-current="page"  href="/#" >ID:{b.ID} Ник:{getUserName(b.id_user)} Курс: {getCourseTitle(b.id_course)} Дата: {b.date.slice(0, 10)} | Вермя: {b.date.slice(11, 19)}
                         
                         </a>
                         <button onClick={() =>hendelDeletebuy(b.ID)}>del</button>

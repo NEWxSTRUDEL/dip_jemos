@@ -1,18 +1,25 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import "./authorpage.css"
-import axios from 'axios';
 
 
 function Nicebuy() {
- 
-  axios.defaults.withCredentials = true;
+  // Состояние для отображения анимации
+  const [showAnimation, setShowAnimation] = useState(false);
 
+  // useEffect для запуска анимации при загрузке страницы
+  useEffect(() => {
+    setShowAnimation(true);
+  }, []);
 
-    return (   
-        <div className='mainwin'>
-            <div>Спасибо за покупку. Мы прислали курс на почту.</div>
+  return (
+    <div className="congratulation-page">
+      <div className={`congratulation-content ${showAnimation ? 'animate' : ''}`}>
+        <h1>Поздравляем с покупкой курса!</h1>
+        <p>Вы успешно приобрели доступ к нашему курсу. Желаем вам удачи и успехов!</p>
+        ✨🎉🎊
       </div>
-    )
+    </div>
+  );
 }
 
-export default Nicebuy
+export default Nicebuy;

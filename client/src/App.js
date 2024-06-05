@@ -39,7 +39,7 @@ function App() {
 
 const allcours = () => {
   return(
-    <div  className='allcours'>
+    <div  className='allcours '>
       {filteredCourse.map((cour) => (
             <div className='onecourse' key={cour.ID}>                        
               <div><img className='imgcours2' src={`http://localhost:8800/course/image/${cour.ID}`} alt={course.name} /></div>

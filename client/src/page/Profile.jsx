@@ -50,8 +50,8 @@ const getCourseTitle = (id,cid,date) => {
 
     if(cid == userid){
     return (
-      <div  className="alluse">
-        Вы купили: {cour.name} Дата: {date.slice(6, 9)}
+      <div  className="alluse profile-course">
+        Вы купили: {cour.name} Дата: {date.slice(0, 10)} | Вермя: {date.slice(11, 19)}
         <button className=''><Link className='linkk' to={`/course/${id}`}>Узанть больше о курсе</Link></button>  
       </div>
     );
@@ -87,7 +87,7 @@ const getCourseTitle = (id,cid,date) => {
         </div>
         <div className="profile-info">
           <label className="profile-label">Дата создания аккаунта:</label>
-          <span className="profile-data">{date}</span>
+          <span className="profile-data">{date.slice(0, 10)}</span>
         </div>
         <button className="logout-button" onClick={() => Logout()}>Выйти из аккаунта</button>
         <button className="sendadminemail" onClick={() => Sendcours()}>Заявка на курс</button>

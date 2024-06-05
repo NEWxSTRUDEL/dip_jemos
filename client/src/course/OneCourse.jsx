@@ -49,7 +49,7 @@ const getAuthor = (id) => {
             <div key={cour.ID}>
               <div className='diw1'>
                   <img className='imgcours' src={`http://localhost:8800/course/image/${cour.ID}`} alt={course.name} /> 
-                  <div>Автор курса: <button  className='authorbut' ><Link to={`/authorpage/${cour.ID_author}`}>{getAuthor(cour.ID_author)}</Link></button>   </div>
+                  <div className='auhtor' >Автор курса: <button  className='authorbut' ><Link to={`/authorpage/${cour.ID_author}`}>{getAuthor(cour.ID_author)}</Link></button>   </div>
               </div>
               <div className='diw2'>
                 <div className='namecours'>{cour.name}</div>

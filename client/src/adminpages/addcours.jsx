@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import "./Admin.css";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Notification from "./Notification"
 
 function Addcours() {
   const [cours, setCours] = useState({
@@ -15,6 +16,7 @@ function Addcours() {
     Download: ""
   });
 
+  const [showNotification, setShowNotification] = useState(false);
   const [img, setImg] = useState(null);
   const nav = useNavigate();
   const [author, setAuthor] = useState([]);
@@ -34,6 +36,18 @@ function Addcours() {
     fetchAllUser();
   }, []);
 
+
+  useEffect(() => {
+    if (showNotification) {
+      const timer = setTimeout(() => {
+        setShowNotification(false);
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [showNotification]);
+
+
   const handleChange = (e) => {
     setCours((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -41,6 +55,11 @@ function Addcours() {
   const handleFileChange = (e) => {
     setImg(e.target.files[0]);
   };
+
+  const handleClick2 = () => {
+    setShowNotification(true);
+  };
+
 
   const handleClick = async (e) => {
     e.preventDefault();
@@ -54,6 +73,8 @@ function Addcours() {
     formData.append("link", cours.link);
     formData.append("Download", cours.Download);
     formData.append("img", img);
+
+
 
     try {
       await axios.post("http://localhost:8800/course", formData, {
@@ -95,8 +116,8 @@ function Addcours() {
           ))}
         </select>
       </div>
-      <div className='form-group'>
-        <input type='text' onChange={handleChange} placeholder='Описание' name='descriptions' />
+      <div className='form-group '>
+        <textarea type='text' onChange={handleChange} placeholder='Описание' name='descriptions' />
       </div>
       <div className='form-group'>
         <input type='text' onChange={handleChange} placeholder='Ссылка' name='link' />
@@ -108,6 +129,8 @@ function Addcours() {
         <input type="file" onChange={handleFileChange} required />
       </div>
       <button className='butnext' onClick={handleClick}>Добавить</button>
+      <button className='butnext' onClick={handleClick2}>проверка</button>
+      <Notification show={showNotification} />
     </div>
   );
 }

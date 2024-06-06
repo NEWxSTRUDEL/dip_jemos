@@ -44,7 +44,7 @@ const allcours = () => {
             <div className='onecourse' key={cour.ID}>                        
               <div><img className='imgcours2' src={`http://localhost:8800/course/image/${cour.ID}`} alt={course.name} /></div>
               <div className='namecours2'>{cour.name}</div>
-              <div className='price'>{cour.price} руб. <button className='linkcours'><Link  to={`/course/${cour.ID}`}>Узанть больше о курсе</Link></button>   </div>                  
+              <div className='price'>{cour.price} руб. <button className='linkcours'><Link  to={`/course/${cour.ID}`}>Узнать больше о курсе</Link></button>   </div>                  
               </div>
           ))}
     </div>

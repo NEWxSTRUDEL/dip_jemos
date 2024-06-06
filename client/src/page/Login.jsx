@@ -1,78 +1,74 @@
-import React, { useState } from 'react'
-import "./xreg-log.css"
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from 'react';
+import "./xreg-log.css";
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function Login() {
+  const [values, setValues] = useState({});
+  const [inputBorderColor, setInputBorderColor] = useState("");
+  const [opacity1, setOpacity] = useState(0);
+  const navigate = useNavigate();
 
-  const [values,setValues] = useState();
+  const handleChange = (event) => {
+    setValues(prev => ({ ...prev, [event.target.name]: event.target.value }));
+  };
 
-  const nav = useNavigate();
-
-const handleChange = (event) => {
-  setValues(prev => ({...prev, [event.target.name]:[event.target.value]} ))
-}
-
-axios.defaults.withCredentials = true;
-  const handlClick = async e =>{
-    e.preventDefault()
-    try{
-      
-      window.localStorage.setItem("isLogedIn" ,true)
-      const res = await axios.post("http://localhost:8800/login", values)
-      if(res.data.Login){
-        nav("/");
-        window.location.reload()
-        console.log("yse")
-      }else{
-        alert("Нверный пароль или email");
-        console.log("No")
+  axios.defaults.withCredentials = true;
+  
+  const handleClick = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post("http://localhost:8800/login", values);
+      if (res.data.Login) {
+        window.localStorage.setItem("isLogedIn", true);
+        navigate("/");
+        window.location.reload();
+      } else {
+        setInputBorderColor("red");
+        setOpacity(1);
+        setTimeout(() => {
+          setOpacity(0);
+          setInputBorderColor("");
+        }, 3000);
       }
-    }catch(err){
-      
+    } catch (err) {
+      console.log(err);
     }
-  }
+  };
 
-    return (
-      <div className="register-form-container">
+  return (
+    <div>
+    <div className="register-form-container">
       <h2>Войти</h2>
       <form className="register-form">
         <div className="form-group">
-          <label htmlFor="username">Email</label>
+          <label htmlFor="email">Email</label>
           <input
             type="email"
             name="email"
             onChange={handleChange}
             required
+            style={{ border: `2px solid ${inputBorderColor}`, transition: "0.3s ease-in-out" }}
           />
         </div>
         <div className="form-group">
-          <label htmlFor="email">Пароль</label>
+          <label htmlFor="password">Пароль</label>
           <input
             type="password"
             name="password"
             onChange={handleChange}
             required
+            style={{ border: `2px solid ${inputBorderColor}`, transition: "0.3s ease-in-out"}}
           />
         </div>
-        <button href='/' onClick={handlClick} className="submit-button">Войти</button>
+        <button onClick={handleClick} className="submit-button">Войти</button>
       </form>
       <p className="login-link">
-        У вас нет учетной запись? <a href="/register">Зарегаться</a>
+        У вас нет учетной записи? <a href="/register">Зарегаться</a>
       </p>
     </div>
-    )
+    <div className='errorword' style={{opacity: `${opacity1}`, color: "red", transition: "0.3s ease-in-out"}}>Не верно введён пароль или email</div></div>
+  );
 }
 
-export default Login
-
-
-
-/*  <div className='mainwin'>
-      <h1>Войти</h1>
-      <input onChange={handleChange} name='email' placeholder='Почта'/><br/>
-      <input onChange={handleChange} name='password' placeholder='Пароль'/><br/>
-      <button type='' onClick={handlClick} className='butnext'>ВХОД</button>
-      <div>Не зарегестрирован? зерегестрируйся!</div>
-      <a href='/register'>Регистрация</a>
-      </div>*/
+export default Login;

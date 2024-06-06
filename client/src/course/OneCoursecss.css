@@ -1,81 +1,114 @@
-.mainv{
-    padding: 2% 2%;
-    display: inline-block;
+/* OneCoursecss.css */
+.mainv {
+    padding: 2%;
+    max-width: 1600px;
+    margin: 0 auto;
     box-sizing: border-box;
-    height: 220px;
-}
-
-.diw1{
-    float: left;
-    height: 40%;
-}
-.diw2{
-    padding: 20px 20px;
-    float: right;
-    width: 400px;
-    margin-left: 150px;
+  }
+  
+  .course-container {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  
+  .left-section {
+    flex: 1;
     display: flex;
     flex-direction: column;
-}
+    align-items: center;
+  }
+  
+  .right-section {
 
-.auhtor{
-    font-size: 24px;
-}
-
-.opi{
-    font-size: 24px;
-}
-
-.box{
-    padding: 10px 0px;
-}
-
-
-.authorbut a {
-    color: inherit;
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .author {
+    font-size: 20px;
+    margin-top: 20px;
+    margin-right: 600px;
+  }
+  
+  .authorbut a{
     text-decoration: none;
+    color: inherit;
   }
 
-
-.imgcours{
-    border: 2px solid black;
-    width: 800px;
-    height: 400px;
-}
-
-.buybut{
-    background-color: rgb(238, 0, 36);
-    width: 250px;
-    height: 50px;
-    font-size: 18px;
-    color: #fff;
-    padding: 5px 15px;
-    border: 1px solid black;
-    cursor: pointer;
+  .authorbut {
+    color: inherit;
     border-radius: 5px;
-    transition: 0.3s ease;
+    background-color: white;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+    margin-left: 10px;
 }
-
-.buybut:hover{
-    background-color: rgb(251, 3, 40);
-}
-
-.sendbuy{
-
+  .authorbut:hover{
+    background-color: rgb(206, 206, 206);
+    transform: translateY(-1px);
+  }
+  
+  .imgcours {
+    width: 800px;
+    max-width: 800px;
+    border: 2px solid black;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+  }
+  .imgcours:hover{
+    border-radius: 15px;
+  }
+  
+  .namecours {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+  
+  .opi {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .disc {
+    font-size: 16px;
+    max-height: 300px;
+    overflow-y: auto;
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .price {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .box {
+    margin-bottom: 10px;
+  }
+  
+  .buybut, .sendbuy {
     background-color: rgb(238, 0, 36);
     color: #fff;
-    padding: 5px 15px;
+    padding: 10px 20px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
-    transition: 0.3s ease;
-}
-
-.namecours{
-    font-size: 56px;
-}
-
-.disc{
-    font-size: 16px;
-    border-bottom: 2px solid black;
-}
+    transition: background-color 0.3s;
+    margin-bottom: 10px;
+  }
+  
+  .buybut:hover, .sendbuy:hover {
+    background-color: rgb(251, 3, 40);
+  }
+  
+  .sendbuy{
+    margin-left: 10px;
+  }

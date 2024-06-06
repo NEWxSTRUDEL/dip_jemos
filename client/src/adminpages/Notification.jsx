@@ -2,10 +2,10 @@
 import React from 'react';
 import './stylesnotification.css';
 
-const Notification = ({ show }) => {
+const Notification = ({ show, message }) => {
   return (
     <div className={`notification ${show ? 'show' : ''}`}>
-      Вы скопировали
+      {message}
     </div>
   );
 };

@@ -17,6 +17,7 @@ function Addcours() {
   });
 
   const [showNotification, setShowNotification] = useState(false);
+  const [notificationMessage, setNotificationMessage] = useState('');
   const [img, setImg] = useState(null);
   const nav = useNavigate();
   const [author, setAuthor] = useState([]);
@@ -56,9 +57,6 @@ function Addcours() {
     setImg(e.target.files[0]);
   };
 
-  const handleClick2 = () => {
-    setShowNotification(true);
-  };
 
 
   const handleClick = async (e) => {
@@ -73,8 +71,8 @@ function Addcours() {
     formData.append("link", cours.link);
     formData.append("Download", cours.Download);
     formData.append("img", img);
-
-
+    setShowNotification(true);
+    setNotificationMessage('Вы добавили курс');
 
     try {
       await axios.post("http://localhost:8800/course", formData, {
@@ -84,6 +82,8 @@ function Addcours() {
       });
       nav("/admin");
     } catch (err) {
+      setShowNotification(true);
+    setNotificationMessage('Вы не заполнили данные');
       console.log(err);
     }
   };
@@ -129,8 +129,7 @@ function Addcours() {
         <input type="file" onChange={handleFileChange} required />
       </div>
       <button className='butnext' onClick={handleClick}>Добавить</button>
-      <button className='butnext' onClick={handleClick2}>проверка</button>
-      <Notification show={showNotification} />
+      <Notification show={showNotification} message={notificationMessage}/>
     </div>
   );
 }

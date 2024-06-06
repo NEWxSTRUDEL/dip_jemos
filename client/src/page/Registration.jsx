@@ -21,6 +21,7 @@ function Registration() {
 
   const handlClick = async e =>{
     e.preventDefault()
+    
     try{
       await axios.post("http://localhost:8800/user", user)
       nav("/login");
@@ -29,12 +30,17 @@ function Registration() {
     }
   }
   
+  const handlcl2 = async e =>{
+    e.preventDefault()
+    console.log(user.role)
+  }
+
   axios.defaults.withCredentials = true;
   useEffect(()=>{
     const fecthAllUser = async () =>{
         try{
           const res = await axios.get("http://localhost:8800")
-
+          console.log(res);
         }catch(err){
             console.log(err)
         }
@@ -87,7 +93,8 @@ const formattedDate = currentDate.getFullYear() + '-' +
             required
           />
         </div>
-        <button href='/' onClick={handlClick} className="submit-button">Зарегистрироваться</button>
+        <button onClick={handlClick} className="submit-button">Зарегистрироваться</button>
+        <button onClick={handlcl2} className="submit-button">проверить</button>
       </form>
       <p className="login-link">
         У вас уже есть учетная запись? <a href="/login">войти</a>

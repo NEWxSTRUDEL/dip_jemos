@@ -1,56 +1,69 @@
-.mainwin{
-    padding: 1% 1%;
+/* authorpage.css */
+.mainwin {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
 }
 
-.product-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+.author-details {
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-.product-card {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    width: 250px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
+.author-details h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
 }
 
-.congratulation-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 500px;
+.author-details p {
+  font-size: 1.2em;
+  color: #555;
+}
 
-  }
-  
-  .congratulation-content {
-    text-align: center;
-    padding: 50px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    animation-duration: 1s;
-    animation-name: slideIn;
-  }
-  
-  @keyframes slideIn {
-    0% {
-      opacity: 0;
-      transform: translateY(-100px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* Дополнительные стили для изображения */
-  .congratulation-content img {
-    max-width: 100%;
-    margin-top: 20px;
-  }
-  
+.course-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.course-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: calc(33% - 20px);
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.course-card:hover {
+  transform: translateY(-1px);
+}
+
+.course-card h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.course-card p {
+  font-size: 1.2em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.course-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #f12121;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.course-link:hover {
+  background-color: #fd6969;
+}

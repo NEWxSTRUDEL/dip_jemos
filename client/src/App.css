@@ -105,6 +105,7 @@
   border-radius: 5px;
   text-decoration: none;
   transition: 0.3s ease;
+  font-size: 18px;
   float: right;
   margin-right: 10px;
 }
